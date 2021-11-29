@@ -12,6 +12,11 @@ function App() {
   }))
   const dispatch = useDispatch()
 
+  const insertNewTodo = () => {
+    dispatch(insert(input))
+    dispatch(changeInput(''))
+  }
+
   return (
     <div className='App'>
       <div>{`count:${count}`}</div>
@@ -29,6 +34,11 @@ function App() {
       <input
         type='text'
         value={input}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            insertNewTodo()
+          }
+        }}
         onChange={(e) => {
           dispatch(changeInput(e.currentTarget.value))
         }}
@@ -37,8 +47,7 @@ function App() {
         type='button'
         value='ADD'
         onClick={() => {
-          dispatch(insert(input))
-          dispatch(changeInput(''))
+          insertNewTodo()
         }}
       />
       <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', paddingRight: '1rem' }}>
