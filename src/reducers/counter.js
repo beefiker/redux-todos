@@ -1,17 +1,18 @@
+import { INCREASE, DECREASE } from '../actions'
+
 const initialState = {
   count: 11,
 }
 
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREASE':
-      console.log('a')
+    case INCREASE:
       return {
         ...state,
         count: state.count + 1,
       }
 
-    case 'DECREASE':
+    case DECREASE:
       return {
         ...state,
         count: state.count - 1,

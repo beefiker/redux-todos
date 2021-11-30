@@ -1,15 +1,12 @@
 import logo from './logo.svg'
 import './App.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 import { increase, decrease, signIn, changeInput, insert, check, remove } from './actions'
 
 function App() {
-  const count = useSelector((state) => state.counterReducer.count)
-  const logged = useSelector((state) => state.loggedReducer.logged)
-  const { input, todos } = useSelector((state) => ({
-    input: state.todosReducer.input,
-    todos: state.todosReducer.todos,
-  }))
+  const { count } = useSelector((state) => state.counter)
+  const { logged } = useSelector((state) => state.logged)
+  const { input, todos } = useSelector((state) => state.todo, shallowEqual)
   const dispatch = useDispatch()
 
   const insertNewTodo = () => {

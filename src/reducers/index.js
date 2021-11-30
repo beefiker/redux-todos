@@ -4,9 +4,9 @@ import todosReducer from './todos'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-  counterReducer,
-  loggedReducer,
-  todosReducer,
+  counter: counterReducer,
+  logged: loggedReducer,
+  todo: todosReducer,
 })
 
 export default rootReducer

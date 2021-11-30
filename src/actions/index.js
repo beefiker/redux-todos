@@ -1,11 +1,15 @@
-const INCREASE = 'INCREASE'
-const DECREASE = 'DECREASE'
-const SIGN_IN = 'SIGN_IN'
+// ? counter
+export const INCREASE = 'counter/INCREASE'
+export const DECREASE = 'counter/DECREASE'
 
-const CHANGE_INPUT = 'CHANGE_INPUT'
-const INSERT = 'INSERT'
-const REMOVE = 'REMOVE'
-const CHECK = 'CHECK'
+// ? logged
+export const SIGN_IN = 'logged/SIGN_IN'
+
+// ? todos
+export const CHANGE_INPUT = 'todos/CHANGE_INPUT'
+export const INSERT = 'todos/INSERT'
+export const REMOVE = 'todos/REMOVE'
+export const CHECK = 'todos/CHECK'
 
 let id = 0
 
@@ -25,7 +29,7 @@ export const changeInput = (input) => {
   return { type: CHANGE_INPUT, payload: input }
 }
 
-export const insert = (text) => ({
+export const insert = (id, text) => ({
   type: INSERT,
   payload: {
     id: ++id,
